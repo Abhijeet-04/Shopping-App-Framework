@@ -4,7 +4,7 @@ This is a back-end API for a shopping cart application, built with Node.js, Expr
 
 ## Features
 
-- User authentication (conceptual)
+- User registration and JWT-based authentication
 - Product management
 - Shopping cart functionality
 - Order processing
@@ -70,6 +70,9 @@ PG_DATABASE=your_database_name
 
 # Server Port
 PORT=3000
+
+# JWT Secret
+JWT_SECRET=your_super_secret_jwt_key
 ```
 
 ### 6. Run the Application
@@ -85,6 +88,48 @@ The API will be running at `http://localhost:3000`.
 ## API Endpoints
 
 Here are the currently available API endpoints.
+
+### Authentication
+
+-   **POST `/api/auth/register`**
+    -   Registers a new user.
+    -   **Request Body:**
+        ```json
+        {
+            "username": "testuser",
+            "email": "test@example.com",
+            "password": "password123"
+        }
+        ```
+    -   **Success Response (201):**
+        ```json
+        {
+            "message": "User created successfully",
+            "user": {
+                "id": "...",
+                "username": "testuser",
+                "email": "test@example.com"
+            }
+        }
+        ```
+    -   **Error Response (409):** If the email or username already exists.
+
+-   **POST `/api/auth/login`**
+    -   Logs in an existing user and returns a JWT.
+    -   **Request Body:**
+        ```json
+        {
+            "email": "test@example.com",
+            "password": "password123"
+        }
+        ```
+    -   **Success Response (200):**
+        ```json
+        {
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+        }
+        ```
+    -   **Error Response (401):** If credentials are invalid.
 
 ### Users
 
@@ -110,6 +155,6 @@ Here are the currently available API endpoints.
     -   **`api/`**: Express routes.
     -   **`config/`**: Application configuration.
     -   **`loaders/`**: Modules for loading and initializing services (Express, PostgreSQL).
-    -   **`services/`**: Business logic (e.g., `userService`).
+    -   **`services/`**: Business logic (e.g., `userService`, `authService`).
 -   **`database.sql`**: DDL script to create the database schema.
 -   **`sample_data.sql`**: Script to populate the database with sample data.
