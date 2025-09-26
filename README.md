@@ -173,6 +173,30 @@ Here are the currently available API endpoints.
         ]
         ```
 
+### Cart
+
+-   **POST `/api/cart/add`**
+    -   Adds a product to the user's shopping cart. If the user does not have a cart, one will be created.
+    -   **Authentication:** Requires a valid JWT in the `Authorization` header (`Bearer <token>`)
+    -   **Request Body:**
+        ```json
+        {
+            "productId": "...",
+            "quantity": 1
+        }
+        ```
+    -   **Success Response (200):** Returns the updated cart items.
+        ```json
+        [
+          {
+            "id": "...",
+            "cart_id": "...",
+            "product_id": "...",
+            "quantity": 1
+          }
+        ]
+        ```
+
 *More endpoints for cart and orders will be documented here as they are developed.*
 
 ## Project Structure
