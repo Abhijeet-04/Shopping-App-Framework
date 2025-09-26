@@ -147,7 +147,33 @@ Here are the currently available API endpoints.
         }
         ```
 
-*More endpoints for products, cart, and orders will be documented here as they are developed.*
+### Products
+
+-   **GET `/api/products`**
+    -   Fetches a list of all products.
+    -   **Authentication:** Requires a valid JWT in the `Authorization` header (`Bearer <token>`)
+    -   **Success Response (200):**
+
+        ```json
+        [
+          {
+            "id": "...",
+            "name": "Laptop",
+            "description": "A powerful laptop.",
+            "price": "1200.00",
+            "stock_quantity": 50
+          },
+          {
+            "id": "...",
+            "name": "Mouse",
+            "description": "A wireless mouse.",
+            "price": "25.00",
+            "stock_quantity": 150
+          }
+        ]
+        ```
+
+*More endpoints for cart and orders will be documented here as they are developed.*
 
 ## Project Structure
 

@@ -1,7 +1,7 @@
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const db = require('../loaders/postgres');
+const { db } = require('../loaders/postgres');
 const { v4: uuidv4 } = require('uuid');
 
 const saltRounds = 10;

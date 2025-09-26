@@ -11,4 +11,5 @@ export default {
     database: process.env.DB_NAME || 'mydatabase',
   },
   port: process.env.PORT || 3000,
+  jwtSecret: process.env.JWT_SECRET || 'your-secret-key',
 };
