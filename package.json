@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "nodemon --watch 'src/**' --ext 'ts,json' --exec 'npm run build && npm run start'",
     "build": "tsc",
-    "start": "node dist/app.js"
+    "start": "node dist/app.js",
+    "test": "NODE_ENV=test npx ts-node node_modules/jasmine/bin/jasmine --config=spec/support/jasmine.json"
   },
   "author": "Google LLC",
   "license": "Apache-2.0",
@@ -23,9 +24,13 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@types/jasmine": "^5.1.9",
     "@types/node": "^20.12.12",
     "@types/pg": "^8.15.5",
+    "jasmine": "^5.10.0",
     "nodemon": "^3.1.0",
+    "supertest": "^7.1.4",
+    "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   }
 }

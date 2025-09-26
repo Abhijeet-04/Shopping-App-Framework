@@ -1,10 +1,10 @@
-const express = require('express');
-const authService = require('../services/authService');
+import express, { Request, Response, NextFunction } from 'express';
+import * as authService from '../services/authService';
 
 const router = express.Router();
 
 // POST /api/auth/register
-router.post('/register', async (req, res, next) => {
+router.post('/register', async (req: Request, res: Response, next: NextFunction) => {
   const { username, email, password } = req.body;
 
   if (!username || !email || !password) {
@@ -24,7 +24,7 @@ router.post('/register', async (req, res, next) => {
 });
 
 // POST /api/auth/login
-router.post('/login', async (req, res, next) => {
+router.post('/login', async (req: Request, res: Response, next: NextFunction) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -39,4 +39,4 @@ router.post('/login', async (req, res, next) => {
   }
 });
 
-module.exports = router;
+export default router;

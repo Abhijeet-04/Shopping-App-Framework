@@ -1,6 +1,6 @@
 import express, { Application } from 'express';
 import routes from '../api';
-import authRoutes from '../api/auth.js';
+import authRoutes from '../api/auth';
 
 export default ({ app }: { app: Application }) => {
   app.get('/status', (req, res) => {
