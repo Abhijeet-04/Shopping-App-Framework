@@ -37,6 +37,25 @@ npm install
 
 ### 4. Set Up the Database
 
+## Database Access Issues
+
+If you encounter a "permission denied for table users" error, it means the database user configured for the application does not have the necessary permissions to access the `users` table.
+
+To resolve this, you need to grant the required privileges to the user.
+
+### Running the Command on Windows
+
+1.  **Open the SQL Shell (psql):** You can find this application in your Start Menu under the PostgreSQL installation folder.
+2.  **Connect to Your Database:** When prompted, provide the server, database, port, username, and password. The default database name is `mydatabase` and the user is `postgres`.
+3.  **Run the Grant Command:** Once connected, execute the following SQL command in the `psql` shell:
+
+    ```sql
+    GRANT ALL PRIVILEGES ON TABLE users TO postgres;
+    ```
+
+This command will grant all necessary permissions to the `postgres` user, allowing the application to access the `users` table.
+
+
 1.  **Start PostgreSQL:** Make sure your PostgreSQL server is running.
 
 2.  **Create a Database:** Create a new database for this project.
