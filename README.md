@@ -55,6 +55,12 @@ To resolve this, you need to grant the required privileges to the user.
 
 This command will grant all necessary permissions to the `postgres` user, allowing the application to access the `users` table.
 
+For Basic privileges for Write and Read From Databse
+issue Use Belwo SQL Commands 
+
+GRANT pg_read_all_data TO my_user;
+GRANT pg_write_all_data TO my_user;
+
 
 1.  **Start PostgreSQL:** Make sure your PostgreSQL server is running.
 
